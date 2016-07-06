@@ -21,7 +21,22 @@ padding: 10px;
   border-bottom: solid black;
   
 }
-
+.custom {
+  background-color: #ACADAF; /* This sets the background color*/
+ }
+ 
+/*Set the background to transparent for ion-item*/
+.custom .item {
+  background-color: transparent;  
+  border-bottom:1px solid;   /*Bottom border for each menu item*/
+  border-color: #666;   /*Sets colors for top and bottom border*/
+  color: #fff;    /*Text color for each item*/
+}
+ 
+.custom .item-complex .item-content,  .item-content {
+  background-color: transparent;
+}
+ 
 
 #bgcolor{
    background-color: #aebcd7;
