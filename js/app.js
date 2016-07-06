@@ -153,6 +153,56 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+    
+    
+      .state('app.availablebalance', {
+    url: '/availablebalance',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/availablebalance.html'
+      }
+    }
+  })
+
+.state('app.account', {
+    url: '/account',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/account.html'
+      }
+    }
+  })
+
+
+  .state('app.payme', {
+      url: '/payme',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/payme.html'
+        }
+      }
+    })
+  
+  
+   .state('app.newclaim', {
+      url: '/newclaim',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/newclaim.html'
+        }
+      }
+    })
+ 
+    .state('app.taxyear', {
+      url: '/taxyear',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/taxyear.html'
+          //controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+
  
 
  ;
