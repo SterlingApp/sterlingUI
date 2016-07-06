@@ -55,23 +55,29 @@
       <ion-list class="custom">
          
         <ion-item >
-         <a href="" class="link">
-             <i class="icon ion-log-in"></i>
-             <span ng-click="toggleSomething()"style="margin-left: 10px;">
+         <a href="" class="link"  ng-click="toggleSomething()">
+             <i class="icon ion-log-in pull-right"></i>
+             <span style="margin-left: 10px;">
               Login
              </span>
           </a>
              
-      
-        <ul  ng-show="isVisible"  class="list" style="margin-left: 50px; margin-top: 20px;">
-        
-            <a href="" ng-click="sub()" menu-close class="link">   <i class="icon ion-home"></i>  Home</a>
-            
-        </ul>
+    
     
        
       
         </ion-item>
+         <div class="list">
+      
+   
+        <div ng-show="isVisible" class=""  style="margin-left: 50px; margin-top: 20px;">
+        
+            <a href="" ng-click="sub()" menu-close class="link">  <i class="icon ion-home"></i>  Home</a>
+            
+      
+      </div>
+            
+         </div> 
          <ion-item menu-close href="#/app/information">
              <i class="icon ion-person"></i>
              <span style="margin-left: 10px;">
