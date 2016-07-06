@@ -136,6 +136,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+          
+   .state('app.activitystmnt', {
+    url: '/activitystmnt',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/activitystmnt.html'
+      }
+    }
+  })
+   
    
 
  ;
