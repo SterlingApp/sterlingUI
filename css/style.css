@@ -30,7 +30,7 @@ padding: 10px;
   background-color: transparent;  
   border-bottom:1px solid;   /*Bottom border for each menu item*/
   border-color: #666;   /*Sets colors for top and bottom border*/
-  color: #fff;    /*Text color for each item*/
+  color: black;    /*Text color for each item*/
 }
  
 .custom .item-complex .item-content,  .item-content {
