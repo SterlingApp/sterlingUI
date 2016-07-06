@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,6 +25,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  
+  
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+	controller: 'LoginCtrl'
+  })
+  
     .state('app', {
     url: '/app',
     abstract: true,
@@ -32,6 +40,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
+   .state('app.portfolio', {
+      url: '/portfolio',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/portfolio.html',
+		  controller: 'PortfolioCtrl'
+        }
+      }
+    })
+  
   .state('app.cartrade', {
       url: '/cartrade',
       views: {
@@ -47,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/contribution.html',
-        
+          controller: 'ContributionCtrl'
         }
       }
     })
@@ -55,7 +73,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/flexible',
       views: {
         'menuContent': {
-          templateUrl: 'templates/flexible.html'
+          templateUrl: 'templates/flexible.html',
+		  controller: 'FlexibleCtrl'
         }
       }
     })
@@ -64,7 +83,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/make.html',
-            
+          controller: 'MakeCtrl'  
         }
       }
     })
@@ -72,8 +91,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/disbursement',
       views: {
         'menuContent': {
-          templateUrl: 'templates/disbursement.html'
-          
+          templateUrl: 'templates/disbursement.html',
+          controller: 'DisbursementCtrl' 
         }
       }
     })
@@ -81,8 +100,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/activity',
       views: {
         'menuContent': {
-          templateUrl: 'templates/activity.html'
-          
+          templateUrl: 'templates/activity.html',
+          controller: 'ActivityCtrl'
         }
       }
     })
@@ -90,8 +109,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/health',
       views: {
         'menuContent': {
-          templateUrl: 'templates/health.html'
-          
+          templateUrl: 'templates/health.html',
+          controller: 'HealthCtrl'
         }
       }
     })
@@ -99,8 +118,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/hsa',
       views: {
         'menuContent': {
-          templateUrl: 'templates/hsa.html'
-          
+          templateUrl: 'templates/hsa.html',
+          controller: 'HsaCtrl'
         }
       }
     })
@@ -108,7 +127,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/recent',
       views: {
         'menuContent': {
-          templateUrl: 'templates/recent.html'
+          templateUrl: 'templates/recent.html',
+		  controller: 'RecentCtrl'
         }
       }
     })
@@ -116,7 +136,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/recentdisburse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/recentdisburse.html'
+          templateUrl: 'templates/recentdisburse.html',
+		  controller: 'RecentdisburseCtrl'
         }
       }
     })
@@ -124,32 +145,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/scheduledcontribute',
       views: {
         'menuContent': {
-          templateUrl: 'templates/scheduledcontribute.html'
+          templateUrl: 'templates/scheduledcontribute.html',
+		  controller: 'ScheduledcontributeCtrl'
         }
       }
     })
-          .state('app.portfolio', {
-      url: '/portfolio',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/portfolio.html'
-        }
-      }
-    })
+         
            .state('app.information', {
     url: '/information',
     views: {
       'menuContent': {
-        templateUrl: 'templates/information.html'
-      }
-    }
-  })
-  
-  .state('app.login', {
-    url: '/login',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/login.html'
+        templateUrl: 'templates/information.html',
+		controller: 'InformationCtrl'
       }
     }
   })
@@ -159,7 +166,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/activitystmnt',
     views: {
       'menuContent': {
-        templateUrl: 'templates/activitystmnt.html'
+        templateUrl: 'templates/activitystmnt.html',
+		controller: 'ActivitystmntCtrl'
       }
     }
   })
@@ -168,7 +176,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/availablebalance',
     views: {
       'menuContent': {
-        templateUrl: 'templates/availablebalance.html'
+        templateUrl: 'templates/availablebalance.html',
+		controller: 'AvailablebalanceCtrl'
       }
     }
   })
@@ -177,7 +186,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/account',
     views: {
       'menuContent': {
-        templateUrl: 'templates/account.html'
+        templateUrl: 'templates/account.html',
+		controller: 'AccountCtrl'
       }
     }
   })
@@ -187,7 +197,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/payme',
       views: {
         'menuContent': {
-          templateUrl: 'templates/payme.html'
+          templateUrl: 'templates/payme.html',
+		  controller: 'PaymeCtrl'
         }
       }
     })
@@ -197,7 +208,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/newclaim',
       views: {
         'menuContent': {
-          templateUrl: 'templates/newclaim.html'
+          templateUrl: 'templates/newclaim.html',
+		  controller: 'newclaimCtrl'
         }
       }
     })
@@ -206,8 +218,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/taxyear',
       views: {
         'menuContent': {
-          templateUrl: 'templates/taxyear.html'
-          //controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/taxyear.html',
+		  controller: 'TaxyearCtrl'
         }
       }
     });
@@ -215,5 +227,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 });
