@@ -27,7 +27,7 @@ padding: 10px;
  
 /*Set the background to transparent for ion-item*/
 .custom .item {
-  background-color: transparent;  
+ 
   border-bottom:1px solid;   /*Bottom border for each menu item*/
   border-color: #666;   /*Sets colors for top and bottom border*/
   color: black;    /*Text color for each item*/
