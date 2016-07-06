@@ -136,6 +136,81 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+           .state('app.information', {
+    url: '/information',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/information.html'
+      }
+    }
+  })
+  
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html'
+      }
+    }
+  })
+  
+  
+   .state('app.activitystmnt', {
+    url: '/activitystmnt',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/activitystmnt.html'
+      }
+    }
+  })
+   
+    .state('app.availablebalance', {
+    url: '/availablebalance',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/availablebalance.html'
+      }
+    }
+  })
+
+.state('app.account', {
+    url: '/account',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/account.html'
+      }
+    }
+  })
+
+
+  .state('app.payme', {
+      url: '/payme',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/payme.html'
+        }
+      }
+    })
+  
+  
+   .state('app.newclaim', {
+      url: '/newclaim',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/newclaim.html'
+        }
+      }
+    })
+ 
+    .state('app.taxyear', {
+      url: '/taxyear',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/taxyear.html'
+          //controller: 'PlaylistsCtrl'
+        }
+      }
+    });
    
 
  
