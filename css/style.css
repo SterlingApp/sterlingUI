@@ -22,7 +22,7 @@ padding: 10px;
   
 }
 .custom {
-  background-color: #ACADAF; /* This sets the background color*/
+  background-color: gray; /* This sets the background color*/
  }
  
 /*Set the background to transparent for ion-item*/
