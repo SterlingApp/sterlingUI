@@ -203,7 +203,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
- 
+ .state('app.information', {
+    url: '/information',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/information.html'
+      }
+    }
+  })
 
  ;
   // if none of the above states are matched, use this as the fallback
