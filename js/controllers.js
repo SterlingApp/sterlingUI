@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', [ ])
 
 .controller('LoginCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	//alert("LoginCtrl");
@@ -101,7 +101,7 @@ angular.module('starter.controllers', [])
     
    }]
      });
-     
+       
      confirmPopup.then(function(res) {
        if(res) {
          console.log('You are sure');
@@ -118,6 +118,7 @@ $scope.toggleSomething = function(){
 $scope.sub=function(){
   $location.path("app/activity");
 }
+
 
 
 })
