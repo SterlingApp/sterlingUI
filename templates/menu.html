@@ -59,37 +59,71 @@
          <!-- <ion-item  menu-close href="#/app/cartrade">
           Car Trade       
         </ion-item>-->
-          <a href="" class="link"  ng-click="toggleSomething()">
--             <i class="icon ion-log-in pull-right"></i>
--             <span style="margin-left: 10px;">
--              Login
--             </span>
--          </a>
-           <div ng-show="isVisible" class=""  style="margin-left: 50px; margin-top: 20px;">
+        <ion-item>
+          
+       
+         
+            
+           
+        </a>
+           </ion-item>
+          
+         
+           <ion-item href="">
+             <a href="" class="link"  ng-click="toggleSomething()">
+                 <img src="img/active.png" width="18" />
+            <span style="margin-left: 10px;">  Activity         
+            </span></a>
+         
+        </ion-item>
+            <div ng-show="isVisible" class="list"  style="margin-left: 50px; margin-top: 20px;">
          
          
--            <a href="" ng-click="sub()" menu-close class="link">  <i class="icon ion-home"></i>  Home</a>
+           <a href="" ng-click="sub()" menu-close class="link">  <img src="img/icon2.png" width="18"/>
+           <span>Activites</span></a>
 </div>
-          <ion-item  menu-close href="#/app/login">
+            
+           <ion-item  menu-close href="#/app/login">
+            <i class="icon ion-log-in pull-right"></i>
+            <span style="margin-left: 10px;">
       login
+            </span>
         </ion-item>
-           <ion-item  menu-close href="#/app/activity">
-          Activity
+           <ion-item menu-close href="#/app/information">
+             <i class="icon ion-person"></i>
+             <span style="margin-left: 10px;">
+        AccountInformation
+            </span>
+       
         </ion-item>
-          <ul>
-            <div class="list">
-              Contibution
-            </div>
-          </ul>
-         
-            <!--<a ng-click="toggleSomething()">ClickMe</a>
-<div ng-show="isVisible"><h1>TOGGLE ME</h1></div>-->
+           
           <ion-item menu-close href="#/app/contribution">
-          contribution
+             <i class="icon ion-pie-graph"></i>
+             <span style="margin-left: 10px;">
+          Contribution
+             </span>
+        
+        </ion-item>
+          <ion-item menu-close href="#/app/scheduledcontribute">
+             <i class="icon ion-calendar"></i>
+          <span style="margin-left: 10px;">
+       Scheduled Contribution
+          </span>
+      
+        </ion-item>
+           <ion-item menu-close href="#/app/hsa">
+                  <i class="icon ion-medkit"></i>
+            <span style="margin-left: 10px;">
+        Health Savings Account
+            </span>
+     
         </ion-item>
           
            <ion-item menu-close href="#/app/disbursement">
-          Disbursement
+            <img src="img/dis.png" width="20" /><span style="margin-left: 10px;">
+               Disbursement
+            </span>
+         
         </ion-item>
             <ion-item menu-close href="#/app/flexible">
           Flexible
@@ -100,18 +134,14 @@
               <ion-item menu-close href="#/app/health">
         Health
         </ion-item>
-               <ion-item menu-close href="#/app/hsa">
-        Health Savings Account
-        </ion-item>
+              
                <ion-item menu-close href="#/app/recent">
        Recent Contributions
         </ion-item>
                <ion-item menu-close href="#/app/recentdisburse">
        Recent Disbursement
         </ion-item>
-                <ion-item menu-close href="#/app/scheduledcontribute">
-       Scheduled Contribution
-        </ion-item>
+                
                  <ion-item menu-close href="#/app/portfolio">
        Portfolio
         </ion-item>
@@ -121,9 +151,7 @@
                   
                  
 
-         <ion-item menu-close href="#/app/information">
-        AccountInformation
-        </ion-item>
+       
         <ion-item menu-close href="#/app/payme">
           Pay Me
         </ion-item>
