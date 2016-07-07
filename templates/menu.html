@@ -12,6 +12,7 @@
       <ion-nav-title>
       <img src="img/logo.png" style="width:170px;">
     </ion-nav-title>
+    
      <!-- <ion-nav-buttons >
          <img src="img/logo.png" style=" width: 190px; margin-left: 50px;" >
       </ion-nav-buttons>
@@ -58,9 +59,31 @@
          <!-- <ion-item  menu-close href="#/app/cartrade">
           Car Trade       
         </ion-item>-->
-          <ion-item menu-close href="#/app/activity">
+          <a href="" class="link"  ng-click="toggleSomething()">
+-             <i class="icon ion-log-in pull-right"></i>
+-             <span style="margin-left: 10px;">
+-              Login
+-             </span>
+-          </a>
+           <div ng-show="isVisible" class=""  style="margin-left: 50px; margin-top: 20px;">
+         
+         
+-            <a href="" ng-click="sub()" menu-close class="link">  <i class="icon ion-home"></i>  Home</a>
+</div>
+          <ion-item  menu-close href="#/app/login">
+      login
+        </ion-item>
+           <ion-item  menu-close href="#/app/activity">
           Activity
         </ion-item>
+          <ul>
+            <div class="list">
+              Contibution
+            </div>
+          </ul>
+         
+            <!--<a ng-click="toggleSomething()">ClickMe</a>
+<div ng-show="isVisible"><h1>TOGGLE ME</h1></div>-->
           <ion-item menu-close href="#/app/contribution">
           contribution
         </ion-item>
@@ -96,9 +119,7 @@
        Activity Statement
         </ion-item>
                   
-                   <ion-item menu-close href="#/app/login">
-      login
-        </ion-item>
+                 
 
          <ion-item menu-close href="#/app/information">
         AccountInformation
