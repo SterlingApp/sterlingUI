@@ -115,7 +115,10 @@ $scope.toggleSomething = function(){
   $scope.isVisible = !$scope.isVisible;
   console.log('make sure toggleSomething() is firing*');
 }
-
+$scope.toggleSomething1 = function(){
+  $scope.isVisible1 = !$scope.isVisible1;
+  console.log('make sure toggleSomething() is firing*');
+}
 
 
 
