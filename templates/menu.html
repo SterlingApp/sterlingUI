@@ -37,96 +37,71 @@
             </span>
          </div>
          <ion-list class="custom">
-            <ion-item>     
-               </a>
-            </ion-item >
-            <ion-item class="item-icon-right" href="">
-               <a href="" class="link" ng-click="toggleSomething()">             
-                  <img src="img/active.png" width="18" />
-                  <span style="margin-left: 10px; ">Activity
+             <ion-item menu-close href="#/app/portfolio">
+               Home
+            </ion-item>
+              <ion-item class="item-icon-right" href="">
+             <!--  <i class="icon ion-medkit"></i>-->
+              <!-- <span style="margin-left: 10px;">-->
+              <a href="" class="link" ng-click="toggleSomething()">             
+                 <!-- <img src="img/active.png" width="18" />-->
+               <!--   <span style="margin-left: 10px; "> -->Health Savings Account
                   <i side="left"  class="icon" ng-class="isVisible ? 'ion-chevron-right' : 'ion-chevron-down'""></i>     
                   </span>
-                 
+             
             </ion-item>
-            <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+               <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/account"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Account information</span></a>
+            </div>
+               <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
             <a href="#app/contribution"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
-            <span>Contibution Activity</span></a>
+            <span>Make Contribution</span></a>
             </div>
-            <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
-               <a href="#app/disbursement" ng-click="sub()" menu-close class="link">  <img src="img/icon2.png" width="18"/>
-               <span>Disbursement Activity</span></a>
+               <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/make"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Make Disbursement</span></a>
             </div>
-            <ion-item  menu-close href="#/app/login">
-               <i class="icon ion-log-in "></i>
-               <span style="margin-left: 10px;">
-               login
-               </span>
+               <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/activity"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Recent Account Activity</span></a>
+            </div>
+               <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href=""  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Statement</span></a>
+            </div>
+              <ion-item class="item-icon-right" href="">
+                  <a href="" class="link" ng-click="toggleSomething1()">
+                     Flexible Spending Account
+                  <i side="left"  class="icon" ng-class="isVisible1 ? 'ion-chevron-right' : 'ion-chevron-down'""></i>     
+                  </span>
+             
             </ion-item>
-            <ion-item menu-close href="#/app/information" >
-               <i class="icon ion-person"></i>
-               <span style="margin-left: 10px;">
-               AccountInformation
-               </span>
+               <div  ng-show="isVisible1"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/information"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Account Information</span></a>
+            </div>
+                <div  ng-show="isVisible1"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/availablebalance"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Available Balance</span></a>
+            </div>
+                <div  ng-show="isVisible1"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href=""  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>Recent Account Activity</span></a>
+            </div>
+                 <div  ng-show="isVisible1"  class="list"  style="margin-left: 50px; margin-top: 20px;">
+            <a href="#app/contribution"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <span>New Claim Request</span></a>
+            </div>
+               <ion-item menu-close href="">
+             Contact Us
             </ion-item>
-            <ion-item menu-close href="#/app/contribution">
-               <i class="icon ion-pie-graph"></i>
-               <span style="margin-left: 10px;">
-               Contribution
-               </span>
+                 <ion-item menu-close href="">
+             Logout
             </ion-item>
-            <ion-item menu-close href="#/app/scheduledcontribute">
-               <i class="icon ion-calendar"></i>
-               <span style="margin-left: 10px;">
-               Scheduled Contribution
-               </span>
-            </ion-item>
-            <ion-item  menu-close href="#/app/hsa">
-               <i class="icon ion-medkit"></i>
-               <span style="margin-left: 10px;">
-               Health Savings Account
-               </span>
-            </ion-item>
-            <ion-item menu-close href="#/app/disbursement">
-               <img src="img/dis.png" width="20" /><span style="margin-left: 10px;">
-               Disbursement
-               </span>
-            </ion-item>
-            <ion-item menu-close href="#/app/flexible">
-               Flexible
-            </ion-item>
-            <ion-item menu-close href="#/app/make">
-               Make Disbursement
-            </ion-item>
-            <ion-item menu-close href="#/app/health">
-               Health
-            </ion-item>
-            <ion-item menu-close href="#/app/recent">
-               Recent Contributions
-            </ion-item>
-            <ion-item menu-close href="#/app/recentdisburse">
-               Recent Disbursement
-            </ion-item>
-            <ion-item menu-close href="#/app/portfolio">
-               Portfolio
-            </ion-item>
-            <ion-item menu-close href="#/app/activitystmnt">
-               Activity Statement
-            </ion-item>
-            <ion-item menu-close href="#/app/payme">
-               Pay Me
-            </ion-item>
-            <ion-item menu-close href="#/app/taxyear">
-               Tax Year
-            </ion-item>
-            <ion-item menu-close href="#/app/availablebalance">
-               Available Balance
-            </ion-item>
-            <ion-item menu-close href="#/app/account">
-               Account 
-            </ion-item>
-            <ion-item menu-close href="#/app/newclaim">
-               New Claim Request
-            </ion-item>
+              
+           
+          
          </ion-list>
       </ion-content>
    </ion-side-menu>
