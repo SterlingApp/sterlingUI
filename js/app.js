@@ -236,7 +236,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
    .state('app.recentcontribute', {
       url: '/recentcontribute',
       views: {
-        'recentcontribute': {
+        'menuContent': {
           templateUrl: 'templates/recentcontribute.html',
 		 
         }
