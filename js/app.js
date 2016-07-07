@@ -232,8 +232,16 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 		  controller: 'TaxyearCtrl'
         }
       }
+    })
+   .state('app.recentcontribute', {
+      url: '/recentcontribute',
+      views: {
+        'recentcontribute': {
+          templateUrl: 'templates/recentcontribute.html',
+		 
+        }
+      }
     });
-   
 
  
   // if none of the above states are matched, use this as the fallback
