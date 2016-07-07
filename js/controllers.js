@@ -115,9 +115,7 @@ $scope.toggleSomething = function(){
   $scope.isVisible = !$scope.isVisible;
   console.log('make sure toggleSomething() is firing*');
 }
-$scope.sub=function(){
-  $location.path("app/activity");
-}
+
 
 
 
