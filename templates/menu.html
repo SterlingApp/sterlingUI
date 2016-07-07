@@ -40,20 +40,20 @@
             <ion-item>     
                </a>
             </ion-item >
-            <ion-item  href="">
-               <a href="" class="link" ng-click="toggleSomething()" >
-               <div>
+            <ion-item class="item-icon-right" href="">
+               <a href="" class="link" ng-click="toggleSomething()">             
                   <img src="img/active.png" width="18" />
-                  <span style="margin-left: 10px; margin-top: 50px;">Activity<span style="margin-left: 147px";> <i side="left"  class="icon" ng-class="isVisible ? 'ion-chevron-right' : 'ion-chevron-down'"></i> </span>      
+                  <span style="margin-left: 10px; ">Activity
+                  <i side="left"  class="icon" ng-class="isVisible ? 'ion-chevron-right' : 'ion-chevron-down'""></i>     
                   </span>
-                 </div>
+                 
             </ion-item>
             <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
-            <a href="" ng-click="sub()" menu-close class="link">  <img src="img/icon2.png" width="18"/>
+            <a href="#app/contribution"  menu-close class="link">  <img src="img/icon2.png" width="18"/>
             <span>Contibution Activity</span></a>
             </div>
             <div  ng-show="isVisible"  class="list"  style="margin-left: 50px; margin-top: 20px;">
-               <a href="" ng-click="sub()" menu-close class="link">  <img src="img/icon2.png" width="18"/>
+               <a href="#app/disbursement" ng-click="sub()" menu-close class="link">  <img src="img/icon2.png" width="18"/>
                <span>Disbursement Activity</span></a>
             </div>
             <ion-item  menu-close href="#/app/login">
@@ -80,7 +80,7 @@
                Scheduled Contribution
                </span>
             </ion-item>
-            <ion-item menu-close href="#/app/hsa">
+            <ion-item  menu-close href="#/app/hsa">
                <i class="icon ion-medkit"></i>
                <span style="margin-left: 10px;">
                Health Savings Account
