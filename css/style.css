@@ -52,5 +52,11 @@ padding: 10px;
      text-decoration: none;
      color: rgb(50,50,50);
 }
+.item-select {
+  width: 100%;
+}
 
-
+.item-select select {
+  left: 0;
+   width: 1000px;
+}
