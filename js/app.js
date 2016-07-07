@@ -233,6 +233,15 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
         }
       }
     })
+   .state('app.recentdis', {
+      url: '/recentdis',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/recentdis.html',
+		 
+        }
+      }
+    })
    .state('app.recentcontribute', {
       url: '/recentcontribute',
       views: {
@@ -242,6 +251,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
         }
       }
     });
+   
 
  
   // if none of the above states are matched, use this as the fallback
