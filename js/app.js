@@ -213,6 +213,16 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
         }
       }
     })
+    .state('app.contact', {
+      url: '/contact',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/contact.html',
+		  //controller: 'newclaimCtrl'
+        }
+      }
+    })
+ 
  
     .state('app.taxyear', {
       url: '/taxyear',
