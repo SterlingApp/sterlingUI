@@ -1,15 +1,42 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+.run(function($ionicPlatform,$cordovaDevice,$cordovaPush,$state,$cordovaDialogs) {
+  $ionicPlatform.ready(function($scope,$location,$state) {
+	  
+    $ionicPlatform.registerBackButtonAction(function(event) {
+		if (true) {
+              if (localStorage.getItem("backCount")==1) {
+					//code
+					//alert('1');
+					localStorage.setItem("backCount","0")
+					//$location.path("/first");
+					$cordovaDialogs.confirm('Are You Sure', 'Do you Want to Close ', ['Yes','No'])
+					.then(function(buttonIndex) {
+						if (buttonIndex=='1') {
+							ionic.Platform.exitApp();
+						}
+					});
+				}else if(localStorage.getItem("backCount")==0){
+					$cordovaDialogs.confirm('Are You Sure', 'Do you Want to Close ', ['Yes','No'])
+					.then(function(buttonIndex) {
+						if (buttonIndex=='1') {
+							ionic.Platform.exitApp();
+						}
+					});
+				}
+				else if (localStorage.getItem("backCount")>1) 
+				{
+					//alert('2');
+					var backcount=parseInt(localStorage.getItem("backCount"));
+					var backcount=backcount-1;
+					localStorage.setItem("backCount",backcount);
+					
+					window.history.back();
+				}
+                 
+			}
+		}, 100);
+		
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -50,16 +77,6 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       }
     })
   
-  .state('app.cartrade', {
-      url: '/cartrade',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/cartrade.html',
-          controller: 'CartradeCtrl'
-        }
-      }
-    })
- 
   .state('app.contribution', {
       url: '/contribution',
       views: {
@@ -218,7 +235,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/contact.html',
-		  //controller: 'newclaimCtrl'
+		  controller: 'contactCtrl'
         }
       }
     })
@@ -237,8 +254,8 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       url: '/recentdis',
       views: {
         'menuContent': {
-          templateUrl: 'templates/recentdis.html',
-		 
+          templateUrl: 'templates/recentdisburse.html',
+		  controller: 'RecentdisCtrl'
         }
       }
     })
@@ -247,6 +264,17 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/recentcontribute.html',
+		  controller: 'RecentcontributeCtrl'
+        }
+      }
+    })
+	
+	.state('app.flexibleactivity', {
+      url: '/flexibleactivity',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/flexibleactivity.html',
+		  controller: 'FlexibleactivityCtrl'
 		 
         }
       }
@@ -277,7 +305,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/payprovider.html',
-		 
+		  controller: 'PayproviderCtrl'
         }
       }
     });
