@@ -250,11 +250,11 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 		 
         }
       }
-<<<<<<< .mine    })
+  })
    
-=======    })
-    .state('app.new', {
->>>>>>> .theirs .state('app.payprovider', {
+
+    
+ .state('app.payprovider', {
       url: '/payprovider',
       views: {
         'menuContent': {
