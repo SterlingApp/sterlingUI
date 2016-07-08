@@ -252,7 +252,15 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       }
   })
    
-
+ .state('app.newclaimbicycle', {
+      url: '/newclaimbicycle',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/newclaimbicycle.html',
+		 
+        }
+      }
+    })
     
  .state('app.payprovider', {
       url: '/payprovider',
