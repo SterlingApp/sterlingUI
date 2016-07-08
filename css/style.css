@@ -58,10 +58,8 @@ padding: 10px;
 */
 .item-select select {
   left: 0;
-  
+}
    /*width:1000px;*/
-<<<<<<< .mine}
-=======}
->>>>>>> .theirs.width{
+.width{
       width: 102%;
 }
