@@ -250,18 +250,20 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 		 
         }
       }
-    })
+<<<<<<< .mine    })
+   
+=======    })
     .state('app.new', {
-      url: '/new',
+>>>>>>> .theirs .state('app.payprovider', {
+      url: '/payprovider',
       views: {
         'menuContent': {
-          templateUrl: 'templates/new.html',
+          templateUrl: 'templates/payprovider.html',
 		 
         }
       }
     });
-   
-
+  
  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
