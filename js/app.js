@@ -250,6 +250,15 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
 		 
         }
       }
+    })
+    .state('app.new', {
+      url: '/new',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/new.html',
+		 
+        }
+      }
     });
    
 
