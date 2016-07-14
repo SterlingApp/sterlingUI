@@ -65,7 +65,9 @@ padding: 10px;
     max-width: 100%;
     width: 100%;
 }
-
+.width{
+      width: 102%;
+}
 /*.item-select {*/
 /*    left: 0;*/
 /*  /*left: 0;*/*/
