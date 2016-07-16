@@ -84,7 +84,6 @@ angular.module('starter.controllers', [ ])
 	
 	
 	
-	
 })
 
 .controller('PayproviderCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
