@@ -110,6 +110,9 @@ angular.module('starter.controllers', [ ])
 .controller('RecentdisburseCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","5");
 })
+.controller('NewCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+	
+})
 
 
 
