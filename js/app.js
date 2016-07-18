@@ -294,8 +294,8 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       url: '/new',
       views: {
         'menuContent': {
-          templateUrl: 'templates/new.html'
-		 
+          templateUrl: 'templates/new.html',
+	  controller: 'NewCtrl'	 
         }
       }
     })
