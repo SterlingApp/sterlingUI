@@ -285,7 +285,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/newclaimbicycle.html',
-		 
+		  controller: 'NewclaimbicycleCtrl'
         }
       }
     })
@@ -295,7 +295,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/new.html',
-	  controller: 'NewCtrl'	 
+		  controller: 'NewCtrl'
         }
       }
     })
