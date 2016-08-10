@@ -74,19 +74,20 @@ angular.module('starter.controllers', [ ])
 	localStorage.setItem("backCount","1");
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
-	//alert($scope.username+"--"+$scope.access_token);
+	
 	 $http.get('http://app.sterlinghsa.com/api/v1/accounts/portfolio',{headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} })
 	.success(function(data){
-		//alert(JSON.stringify(data));
+		
 		localStorage.setItem('account_types',data.account_types.HSA);
 		localStorage.setItem('account_types',data.account_types.FSA);
 		
-		$scope.account_types=data.account_types.HSA;
+		$scope.account_type=data.account_types.HSA;
 		$scope.account_types=data.account_types.FSA;
 		$rootScope.hsa_acntno=data.account_types.HSA.ACCT_NUM;
 		 $rootScope.account=data.account_types.FSA.ACCT_NUM;
+		
 		}).error(function(err){
-		 alert(JSON.stringify(err));
+		// alert(JSON.stringify(err));
 	});
 	
 	
@@ -101,7 +102,7 @@ angular.module('starter.controllers', [ ])
 	 // alert( JSON.stringify(data)); 
 	  	
  }, function(err){
-  alert("ERROR: " + JSON.stringify(err));
+  //alert("ERROR: " + JSON.stringify(err));
  })	   
 })
 .controller('InformationCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork,$rootScope) {
@@ -113,7 +114,7 @@ angular.module('starter.controllers', [ ])
  .success(function(data){ 
 	  		$scope.accnumber=data.account_information;
  }, function(err){
-  alert("ERROR: " + JSON.stringify(err));
+  //alert("ERROR: " + JSON.stringify(err));
  })	 
 
 })
@@ -164,7 +165,7 @@ angular.module('starter.controllers', [ ])
 	
 	 $http.get('  http://app.sterlinghsa.com/api/v1/accounts/categories',{headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} })
 	.success(function(data){
-		alert(JSON.stringify(data));
+		//alert(JSON.stringify(data));
 		}).error(function(err){
 		 
 	});
@@ -181,7 +182,7 @@ angular.module('starter.controllers', [ ])
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
 	 $scope.acc_num=$rootScope.hsa_acntno;
-//	alert(JSON.stringify( $scope.acc_num));
+
 	 $http.get(' http://app.sterlinghsa.com/api/v1/accounts/accountinfo',{params:{'type':'hsa','acc_num': $scope.acc_num},headers: {'Content-Type':'application/json; charset=utf-8','type':'hsa','Authorization':$scope.access_token} })
 	.success(function(data){
 	//	alert(JSON.stringify(data));
