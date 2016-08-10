@@ -189,9 +189,7 @@ angular.module('starter.controllers', [ ])
 		localStorage.setItem('account_information',data.account_information);
 		localStorage.setItem('total_contributions',data.total_contributions);
 		$scope.account_information=data.account_information;
-		//$scope.total_contributions = localStorage.getItem('total_contributions');
 		$scope.total_contributions = data.total_contributions;
-		//alert(JSON.stringify(data.account_information));
 		}).error(function(err){
 		 
 	});
