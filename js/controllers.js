@@ -79,8 +79,12 @@ angular.module('starter.controllers', [ ])
 	.success(function(data){
 		//alert(JSON.stringify(data));
 		localStorage.setItem('account_types',data.account_types.HSA);
+		localStorage.setItem('account_types',data.account_types.FSA);
+		
 		$scope.account_types=data.account_types.HSA;
+		$scope.account_types=data.account_types.FSA;
 		$rootScope.hsa_acntno=data.account_types.HSA.ACCT_NUM;
+		 $rootScope.account=data.account_types.FSA.ACCT_NUM;
 		}).error(function(err){
 		 alert(JSON.stringify(err));
 	});
@@ -94,7 +98,7 @@ angular.module('starter.controllers', [ ])
 	
 	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/bankdetails",{params:{'type':'fsa', 'acc_num':'FSA021223'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
  .success(function(data){
-	 alert( JSON.stringify(data)); 
+	 // alert( JSON.stringify(data)); 
 	  	
  }, function(err){
   alert("ERROR: " + JSON.stringify(err));
@@ -104,15 +108,10 @@ angular.module('starter.controllers', [ ])
 	localStorage.setItem("backCount","3");
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
-	 $scope.acc=$rootScope.account.FSA.ACCT_NUM;	
-	 alert(JSON.stringify($scope.acc));
-	
-	
+	 $scope.acc=$rootScope.account;		
 	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/accountinfo",{params:{'type':'fsa', 'acc_num':$scope.acc},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
- .success(function(data){
-	 alert( 'Success'); 
-	  		$scope.accnumber=data.account_information.ACC_NUM;
-			$scope.date=data.account_information.EFFECTIVE_DATE;
+ .success(function(data){ 
+	  		$scope.accnumber=data.account_information;
  }, function(err){
   alert("ERROR: " + JSON.stringify(err));
  })	 
