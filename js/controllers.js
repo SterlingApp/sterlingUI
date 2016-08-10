@@ -41,7 +41,7 @@ angular.module('starter.controllers', [ ])
 			.success(function(data) {
 				alert(JSON.stringify(data));
 				
-				 if(data.status =="SUCCESS"){
+				 if(data.status == "SUCCESS"){
 					localStorage.setItem('access_token',data.access_token);
 					localStorage.setItem('username',loginData.username);
 					//alert(localStorage.getItem('access_token')+"--"+localStorage.getItem('username'));
@@ -96,7 +96,7 @@ angular.module('starter.controllers', [ ])
 	localStorage.setItem("backCount","3");
 	$scope.access_token = localStorage.getItem('access_token');
 	
-	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/bankdetails",{params:{'type':'fsa', 'acc_num':'FSA021223'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	$http.get("http://app.sterlinghsa.com/api/v1/accounts/bankdetails",{params:{'type':'fsa', 'acc_num':'FSA021223'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
  .success(function(data){
 	 // alert( JSON.stringify(data)); 
 	  	
@@ -109,7 +109,7 @@ angular.module('starter.controllers', [ ])
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
 	 $scope.acc=$rootScope.account;		
-	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/accountinfo",{params:{'type':'fsa', 'acc_num':$scope.acc},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	$http.get("http://app.sterlinghsa.com/api/v1/accounts/accountinfo",{params:{'type':'fsa','acc_num':$scope.acc},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
  .success(function(data){ 
 	  		$scope.accnumber=data.account_information;
  }, function(err){
