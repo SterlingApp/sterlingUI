@@ -302,7 +302,14 @@ angular.module('starter.controllers', [ ])
 		
 	};
 	$scope.pick=function(){
-		$location.path("/app/hsastatement");
+		// var data=$scope.activity;
+		if($scope.activity.EndtDate==""|| $scope.activity.startDate==""){
+			alert('Please select date');
+		}else{
+			$location.path("/app/hsastatement");
+		}
+		
+		
 	};
 })
 
