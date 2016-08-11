@@ -222,10 +222,15 @@ angular.module('starter.controllers', [ ])
 .controller('TaxyearCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
 })
-
-.controller('ActivitystmntCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('HsastatementCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
-	$scope.activity={startDate:'',EndtDate:''};
+	  $scope.date=$scope.activity;
+	
+})
+
+.controller('ActivitystmntCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork,$rootScope) {
+	localStorage.setItem("backCount","4");
+	$rootScope.activity={startDate:'',EndtDate:''};
 	
 	$scope.getStartDate=function(){
 		
@@ -257,6 +262,7 @@ angular.module('starter.controllers', [ ])
 				
 					var selectedDate=mon+'/'+dataas[2]+'/'+dataas[3];
 					$scope.activity.startDate=selectedDate;
+					// alert($scope.activity.startDate);
 				});
 			})
 		
@@ -294,6 +300,9 @@ angular.module('starter.controllers', [ ])
 				});
 			})
 		
+	};
+	$scope.pick=function(){
+		$location.path("/app/hsastatement");
 	};
 })
 
