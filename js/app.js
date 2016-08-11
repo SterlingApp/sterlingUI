@@ -299,6 +299,16 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
         }
       }
     })
+	
+	.state('app.hsastatement', {
+      url: '/hsastatement',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/hsastatement.html',
+		  controller: 'HsastatementCtrl'
+        }
+      }
+    })
     
  .state('app.payprovider', {
       url: '/payprovider',
