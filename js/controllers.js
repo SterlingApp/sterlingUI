@@ -35,23 +35,28 @@ angular.module('starter.controllers', [ ])
 	{
 		
 					
-		$scope.show();	
+		 $scope.show();	
 		
 	     $http.post(' http://app.sterlinghsa.com/api/v1/user/login',{username:loginData.username,password:loginData.password},{headers: {'Content-Type':'application/json; charset=utf-8'} })     
 			.success(function(data) {
 				//alert(JSON.stringify(data));
 				
 				 if(data.status == "SUCCESS"){
+					
 					localStorage.setItem('access_token',data.access_token);
 					localStorage.setItem('username',loginData.username);
 					//alert(localStorage.getItem('access_token')+"--"+localStorage.getItem('username'));
 					
 					
 					$location.path("/app/portfolio");
-					
-				$scope.hide();
+					$scope.hide();
+				
        
 					
+				}else{
+					
+					alert('Enter valid username or password');
+					$scope.hide();
 				}
 				 
 			}).error(function(err){         
