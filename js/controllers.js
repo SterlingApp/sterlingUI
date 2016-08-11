@@ -39,7 +39,7 @@ angular.module('starter.controllers', [ ])
 		
 	     $http.post(' http://app.sterlinghsa.com/api/v1/user/login',{username:loginData.username,password:loginData.password},{headers: {'Content-Type':'application/json; charset=utf-8'} })     
 			.success(function(data) {
-				alert(JSON.stringify(data));
+				//alert(JSON.stringify(data));
 				
 				 if(data.status == "SUCCESS"){
 					localStorage.setItem('access_token',data.access_token);
@@ -189,7 +189,9 @@ angular.module('starter.controllers', [ ])
 		localStorage.setItem('account_information',data.account_information);
 		localStorage.setItem('total_contributions',data.total_contributions);
 		$scope.account_information=data.account_information;
+		//$scope.total_contributions = localStorage.getItem('total_contributions');
 		$scope.total_contributions = data.total_contributions;
+		//alert(JSON.stringify(data.account_information));
 		}).error(function(err){
 		 
 	});
@@ -297,6 +299,8 @@ angular.module('starter.controllers', [ ])
 
 .controller('PaymeCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
+	
+	
 	$scope.TransDate="";
 	
 	$scope.getTransDate=function(){
