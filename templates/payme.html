@@ -22,7 +22,7 @@
         </div>
          
         <div class="col col-25">
-          <h2 style="color: green;">$1,084.70</h2>
+          <h2 style="color: green;">${{Availablebalance}}</h2>
         
       
         </div>
@@ -31,36 +31,16 @@
       
         </div>
         
-      </div>
-       
-      
-          <!--<div class="list list-inset">
-            <label class="item item-input" id="bgcolor">
-              <div class="col col-50" >
-                <p>Available balance:</p>
-              </div>
-           <div class="col col-50">
-                <p>$1,085.70</p>
-              </div>
-           
-            </label>
-           </div>-->
-          
-      <div class="list list-inset">
-        <label class="item item-input item-select"  >
-          <div class="input-label">
-          
-           select
-            </div>
-            <select>
-            <option selected> Select Bank Account</option>
-            <option>Wells Fargo Bud</option>
-            <option>Wells Fargo Sarah</option>
-          
-          </select>
-
-            </label>
-      </div>
+      </div>  
+<div class="list list-inset">
+	<label class="item item-input item-select"  >
+		<div class="input-label">select</div>
+		<select>
+			<option selected> Select Payee</option>
+			<option ng-repeat="data in bank_details">{{data.DISPLAY_NAME}}</option>
+		</select>
+	</label>
+</div>
       
      <div class="list list-inset">
         <label class="item item-input">
@@ -85,11 +65,10 @@
         <label class="item item-input item-select">
           <div class="input-label">
              category
-              <select>
-            <option selected>Category</option>
-            <option>Qualified</option>
-            <option>Non-Qualified</option>
-          </select>
+			<select>
+				<option selected>Category</option>
+				<option ng-repeat="data in categories">{{data.DESCRIPTION}}</option>
+			</select>
     
             </div>
              </label>

@@ -60,13 +60,13 @@ angular.module('starter.controllers', [ ])
 					
 					$location.path("/app/portfolio");
 					$scope.hide();				
-				}else{
-					alert('Enter valid username and password');
-					$scope.hide();
+				}else if(data.status=="FAILED"){
+					alert(data.error_message);
+					//$scope.hide();
 				}
 				 
 			}).error(function(err){         
-			  //alert("ERROR: " + JSON.stringify(err)); 
+			  alert(JSON.stringify(err)); 
 			    /* if (data.status === 400 && !(loginData.username.$invalid || loginData.password.$invalid)) {
                 errorMessage = 'Incorrect Username or Password';
 				 alert("FAILED LOGIN" + errorMessage);
@@ -94,9 +94,10 @@ angular.module('starter.controllers', [ ])
 		
 		$scope.account_type=data.account_types.HSA;
 		$scope.account_types=data.account_types.FSA;
-		$rootScope.hsa_acntno=data.account_types.HSA.ACCT_NUM;
-		 $rootScope.account=data.account_types.FSA.ACCT_NUM;
-		
+		$rootScope.hsaaccno=data.account_types.HSA.ACCT_NUM;
+		$rootScope.fsaaccno=data.account_types.FSA.ACCT_NUM;
+		$rootScope.hsaaccId=data.account_types.HSA.ACCT_ID;
+		$rootScope.fsaaccId=data.account_types.FSA.ACCT_ID;
 		}).error(function(err){
 		// alert(JSON.stringify(err));
 	});
@@ -120,7 +121,7 @@ angular.module('starter.controllers', [ ])
 	localStorage.setItem("backCount","3");
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
-	 $scope.acc=$rootScope.account;		
+	 $scope.acc=$rootScope.fsaaccno;		
 	$http.get("http://app.sterlinghsa.com/api/v1/accounts/accountinfo",{params:{'type':'fsa','acc_num':$scope.acc},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
  .success(function(data){ 
 	  		$scope.accnumber=data.account_information;
@@ -193,7 +194,7 @@ angular.module('starter.controllers', [ ])
 	localStorage.setItem("backCount","3");
 	$scope.username = localStorage.getItem('username');
 	$scope.access_token = localStorage.getItem('access_token');
-	 $scope.acc_num=$rootScope.hsa_acntno;
+	 $scope.acc_num=$rootScope.hsaaccno;
 
 	 $http.get(' http://app.sterlinghsa.com/api/v1/accounts/accountinfo',{params:{'type':'hsa','acc_num': $scope.acc_num},headers: {'Content-Type':'application/json; charset=utf-8','type':'hsa','Authorization':$scope.access_token} })
 	.success(function(data){
@@ -256,19 +257,6 @@ angular.module('starter.controllers', [ ])
 })
 .controller('ContributionCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
-	
-	$scope.username = localStorage.getItem('username');
-	$scope.access_token = localStorage.getItem('access_token');
- $http.get(" http://app.sterlinghsa.com/api/v1/accounts/schedule",{params:{'acct_id':'82953','trans_type':'c'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
-  .success(function(data){ 
-    alert("Data: " + JSON.stringify(data));
-    
-  }, function(err){
-   alert("ERROR: " + JSON.stringify(err));
-  })
-	
-
-	
 })
 .controller('HsastatementCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
@@ -361,7 +349,7 @@ angular.module('starter.controllers', [ ])
 	};
 })
 
-.controller('PaymeCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('PaymeCtrl', function($scope,$rootScope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
 	
 	
@@ -401,9 +389,34 @@ angular.module('starter.controllers', [ ])
 		
 	};
 	
+	$scope.access_token = localStorage.getItem('access_token');
+	$scope.hsaaccno=$rootScope.hsaaccno
+	$http.get("http://app.sterlinghsa.com/api/v1/accounts/bankdetails",{params:{'type':'hsa', 'acc_num':$scope.hsaaccno},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){
+		//alert( JSON.stringify(data));
+		$scope.bank_details=data.bank_details;
+	}, function(err){
+		//alert("ERROR: " + JSON.stringify(err));
+	});
+	
+	$http.get('  http://app.sterlinghsa.com/api/v1/accounts/categories',{headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} })
+	.success(function(data){
+		//alert(JSON.stringify(data));
+		$scope.categories=data.categories;
+	}).error(function(err){
+		//alert("Err-"+JSON.stringify(data));
+	});
+	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/balances",{params:{'type':'hsa'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){
+		//alert( JSON.stringify(data));
+		$scope.Availablebalance=data.balances.BALANCE;
+	}, function(err){
+		//alert("ERROR: " + JSON.stringify(err));
+	});
+	
 })
 
-.controller('PayproviderCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('PayproviderCtrl', function($scope,$rootScope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
 	$scope.TransDate="";
 	
@@ -441,21 +454,72 @@ angular.module('starter.controllers', [ ])
 			})
 		
 	};
+	
+	$scope.access_token = localStorage.getItem('access_token');
+	$scope.hsaaccno=$rootScope.hsaaccno
+	$http.get("http://app.sterlinghsa.com/api/v1/accounts/bankdetails",{params:{'type':'hsa', 'acc_num':$scope.hsaaccno},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){
+		//alert( JSON.stringify(data));
+		$scope.bank_details=data.bank_details;
+	}, function(err){
+		//alert("ERROR: " + JSON.stringify(err));
+	});
+	
+	$http.get('  http://app.sterlinghsa.com/api/v1/accounts/categories',{headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} })
+	.success(function(data){
+		//alert(JSON.stringify(data));
+		$scope.categories=data.categories;
+	}).error(function(err){
+		//alert("Err-"+JSON.stringify(data));
+	});
+	
+	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/balances",{params:{'type':'hsa'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){
+		//alert( JSON.stringify(data));
+		$scope.Availablebalance=data.balances.BALANCE;
+	}, function(err){
+		//alert("ERROR: " + JSON.stringify(err));
+	});
+	
+	
 })
 
 
 
-.controller('DisbursementCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('DisbursementCtrl', function($rootScope,$scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
 })
 
 
 .controller('ScheduledcontributeCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","5");
-})
+	$scope.username = localStorage.getItem('username');
+	$scope.access_token = localStorage.getItem('access_token');
+	$scope.hsaaccId=$rootScope.hsaaccId;
+	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/schedule",{params:{'acct_id':$scope.hsaaccId,'trans_type':'c'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){ 
+		//alert("Data: " + JSON.stringify(data));
+		$scope.schedule_list=data.schedule_list;
+		//alert($scope.data);
+	}, function(err){
+		alert("ERROR: " + JSON.stringify(err));
+	});
+	})
 
-.controller('RecentCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('RecentCtrl', function($rootScope,$scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","5");
+	$scope.username = localStorage.getItem('username');
+	$scope.access_token = localStorage.getItem('access_token');
+	$scope.hsaaccId=$rootScope.hsaaccId;
+	$http.get(" http://app.sterlinghsa.com/api/v1/accounts/recent-activity",{params:{'acct_id':$scope.hsaaccId,'trans_type':'c','plan_type':'hsa'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+	.success(function(data){
+		//alert("Data: " + JSON.stringify(data));
+		$scope.transcation_list=data.transcation_list;
+		//alert($scope.data);
+	}, function(err){
+		alert("ERROR: " + JSON.stringify(err));
+	})
+	
 })
 
 .controller('RecentdisburseCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
