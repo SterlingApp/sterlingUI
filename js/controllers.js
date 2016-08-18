@@ -36,8 +36,16 @@ angular.module('starter.controllers', [ ])
 	  
 	$scope.logIn=function(loginData)
 	{
-		
-				
+		// alert('s');
+		    // var db = $cordovaSQLite.openDB({ name: "sterling.db", location:"default" });
+       
+		    // var query = "INSERT INTO info (username, password) VALUES (?,?)";
+         // $cordovaSQLite.execute(db, query, ["saran", "raji"]).then(function(res) {
+            // console.log("INSERT ID -> " + res.insertId);
+			 // alert("INSERT ID -> " + res.insertId);
+         // }, function (err) {
+            // alert('error: ' + err.message);
+        // });
 		
 		
 	     $http.post(' http://app.sterlinghsa.com/api/v1/user/login',{username:loginData.username,password:loginData.password},{headers: {'Content-Type':'application/json; charset=utf-8'} })     
@@ -53,7 +61,7 @@ angular.module('starter.controllers', [ ])
 					$location.path("/app/portfolio");
 					$scope.hide();				
 				}else{
-					alert('Enter valid username or password');
+					alert('Enter valid username and password');
 					$scope.hide();
 				}
 				 
@@ -123,8 +131,9 @@ angular.module('starter.controllers', [ ])
 })
 
 
-.controller('FlexibleCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+.controller('FlexibleCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork,$cordovaSQLite) {
 	localStorage.setItem("backCount","2");
+
 	
 	
 	
@@ -219,11 +228,47 @@ angular.module('starter.controllers', [ ])
 })
 
 .controller('RecentcontributeCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
-	localStorage.setItem("backCount","4");
+	
+ localStorage.setItem("backCount","4");
+ $scope.username = localStorage.getItem('username');
+	$scope.access_token = localStorage.getItem('access_token');
+ $http.get(" http://app.sterlinghsa.com/api/v1/accounts/recent-activity",{params:{'plan_type':'fsa','acct_id':'82953','trans_type':'c'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+  .success(function(data){ 
+    alert("Data: " + JSON.stringify(data.transcation_list.FEE_DATE[0]));
+    $scope.recentcontribute=data.transcation_list;
+  }, function(err){
+   alert("ERROR: " + JSON.stringify(err));
+  })
 })
 
 .controller('TaxyearCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
+	
+	$scope.username = localStorage.getItem('username');
+	$scope.access_token = localStorage.getItem('access_token');
+ $http.get(" http://app.sterlinghsa.com/api/v1/accounts/taxstatement",{params:{'acct_id':'82953'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+  .success(function(data){ 
+    alert("Data: " + JSON.stringify(data));
+    
+  }, function(err){
+   alert("ERROR: " + JSON.stringify(err));
+  })
+})
+.controller('ContributionCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
+	localStorage.setItem("backCount","4");
+	
+	$scope.username = localStorage.getItem('username');
+	$scope.access_token = localStorage.getItem('access_token');
+ $http.get(" http://app.sterlinghsa.com/api/v1/accounts/schedule",{params:{'acct_id':'82953','trans_type':'c'},headers: {'Content-Type':'application/json; charset=utf-8','Authorization':$scope.access_token} } )
+  .success(function(data){ 
+    alert("Data: " + JSON.stringify(data));
+    
+  }, function(err){
+   alert("ERROR: " + JSON.stringify(err));
+  })
+	
+
+	
 })
 .controller('HsastatementCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
@@ -398,9 +443,7 @@ angular.module('starter.controllers', [ ])
 	};
 })
 
-.controller('ContributionCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
-	localStorage.setItem("backCount","4");
-})
+
 
 .controller('DisbursementCtrl', function($scope,$ionicPlatform,$cordovaDatePicker,$http,$location,$ionicModal,$cordovaDialogs,$ionicLoading,$cordovaNetwork) {
 	localStorage.setItem("backCount","4");
@@ -476,13 +519,6 @@ $scope.toggleSomething1 = function(){
 			}
 		});
 	};
-})
-
-.controller('FooterCtrl', function($scope,$ionicPopup, $timeout ,$ionicModal,$location, $ionicHistory,$ionicSideMenuDelegate, $cordovaDialogs) {
-	$scope.homePage = function() {
-		$location.path("/app/portfolio");
-	};
-	
 	$scope.goBack = function() {
 		//alert(localStorage.getItem("backCount"));
 		if (localStorage.getItem("backCount")==1) {
@@ -514,6 +550,14 @@ $scope.toggleSomething1 = function(){
 			window.history.back();
 		}
 	};
+})
+
+.controller('FooterCtrl', function($scope,$ionicPopup, $timeout ,$ionicModal,$location, $ionicHistory,$ionicSideMenuDelegate, $cordovaDialogs) {
+	$scope.homePage = function() {
+		$location.path("/app/portfolio");
+	};
+	
+	
 	
 })
 
