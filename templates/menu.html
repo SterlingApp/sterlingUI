@@ -21,13 +21,13 @@
          </ion-nav-buttons>
       </ion-nav-bar >
       
-      <ion-footer-bar class="bar-light" ng-controller="FooterCtrl">
+     <!--  <ion-footer-bar class="bar-light" ng-controller="FooterCtrl">
        
          <button class="button button-dark" ng-click="goBack()" >
          <i class="icon ion-chevron-left"></i>Back</button>
          <button class="button button-dark icon ion-home pull-right" ng-click="homePage()" ></button>
          
-      </ion-footer-bar>
+      </ion-footer-bar> -->
    
       <ion-nav-view name="menuContent"></ion-nav-view>
    </ion-side-menu-content>
@@ -117,10 +117,10 @@
                 </span>
                 
             </ion-item>
-                 <ion-item menu-close href="">
+                 <ion-item menu-close href="" ng-click="Logout()">
                   <i class="icon ion-log-out"></i>
                 <span style="margin-left: 05px; ">
-             <a ng-click="Logout()">Logout</a>
+             <a ng-click="Logout()">Logout</a> 
                </sapn>
             </ion-item>
               

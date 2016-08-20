@@ -167,6 +167,16 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers'])
         }
       }
     })
+	
+	 .state('app.scheduleddisbursement', {
+      url: '/scheduleddisbursement',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/scheduleddisbursement.html',
+		  controller: 'ScheduledDisbursementCtrl'
+        }
+      }
+    })
          
            .state('app.information', {
     url: '/information',

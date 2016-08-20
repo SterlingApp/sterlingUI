@@ -1,4 +1,4 @@
-<ion-view>
+<!-- <ion-view>
     <style>
        
 
@@ -66,4 +66,20 @@
  </div>
 
        </ion-content>
-    </ion-view>
+    </ion-view> -->
+
+
+<ion-view>
+	<ion-content>
+		<h3 class="h" > <strong> Recent Contributions</strong></h3>
+		<div class="div1" ng-repeat="data in transcation_list">
+			<div class="row">
+				<p>{{data.FEE_DATE}}</p>
+			</div>
+			<div class = "row">
+				<div class = "col col1 col-75">{{data.FEE_NAME}}</div>
+				<div class = "col col2">{{data.AMOUNT}}</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
